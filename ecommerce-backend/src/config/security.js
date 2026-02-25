@@ -11,6 +11,8 @@ const applySecurityMiddleware = (app) => {
     "https://full-stack-e-commerce-project-is6xk.vercel.app",
     "https://full-stack-e-commerce-project-pearl.vercel.app"
   ],
+   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
 }));
 
