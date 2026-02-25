@@ -1,7 +1,7 @@
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const generateToken = require("../utils/generateToken");
-const sendEmail = require("../config/nodemailer");
+// const sendEmail = require("../config/nodemailer");
 
 exports.register = async (req, res) => {
   try {
@@ -20,18 +20,18 @@ exports.register = async (req, res) => {
       password: hashedPassword,
     });
 
-    await sendEmail({
-      to: email,
-      subject: "Welcome to Our E-Commerce Platform",
-      text: `Hi ${name}, welcome to our platform. Your account has been created successfully.`,
-      html: `
-        <h2>Welcome, ${name}!</h2>
-        <p>Your account has been created successfully.</p>
-        <p>You can now explore products, place orders, and enjoy our services.</p>
-        <br/>
-        <p>Thank you for joining us.</p>
-      `,
-    });
+    // await sendEmail({
+    //   to: email,
+    //   subject: "Welcome to Our E-Commerce Platform",
+    //   text: `Hi ${name}, welcome to our platform. Your account has been created successfully.`,
+    //   html: `
+    //     <h2>Welcome, ${name}!</h2>
+    //     <p>Your account has been created successfully.</p>
+    //     <p>You can now explore products, place orders, and enjoy our services.</p>
+    //     <br/>
+    //     <p>Thank you for joining us.</p>
+    //   `,
+    // });
 
     res.status(201).json({
       _id: user._id,
@@ -59,16 +59,16 @@ exports.login = async (req, res) => {
       return res.status(400).json({ message: "Invalid password" });
     }
 
-    await sendEmail({
-      to: email,
-      subject: "Login Notification",
-      text: `Hi ${user.name}, your account was just accessed.`,
-      html: `
-        <p>Hello ${user.name},</p>
-        <p>Your account has been successfully logged in.</p>
-        <p>If this was not you, please reset your password immediately.</p>
-      `,
-    });
+    // await sendEmail({
+    //   to: email,
+    //   subject: "Login Notification",
+    //   text: `Hi ${user.name}, your account was just accessed.`,
+    //   html: `
+    //     <p>Hello ${user.name},</p>
+    //     <p>Your account has been successfully logged in.</p>
+    //     <p>If this was not you, please reset your password immediately.</p>
+    //   `,
+    // });
 
     res.json({
       message: "login +",

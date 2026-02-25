@@ -1,5 +1,5 @@
 const Order = require("../models/orderModel");
-const sendEmail = require("../config/nodemailer");
+// const sendEmail = require("../config/nodemailer");
 
 const addOrderItems = async (req, res) => {
   try {
@@ -35,19 +35,19 @@ const addOrderItems = async (req, res) => {
 
     const createdOrder = await order.save();
 
-    await sendEmail({
-      to: req.user.email,
-      subject: "Order Confirmation",
-      text: `Hi ${name}, your order has been placed successfully.`,
-      html: `
-        <h2>Order Confirmed</h2>
-        <p>Hello ${name},</p>
-        <p>Your order has been successfully placed.</p>
-        <p>We will notify you once your order is shipped.</p>
-        <br/>
-        <p>Thank you for shopping with us.</p>
-      `,
-    });
+    // await sendEmail({
+    //   to: req.user.email,
+    //   subject: "Order Confirmation",
+    //   text: `Hi ${name}, your order has been placed successfully.`,
+    //   html: `
+    //     <h2>Order Confirmed</h2>
+    //     <p>Hello ${name},</p>
+    //     <p>Your order has been successfully placed.</p>
+    //     <p>We will notify you once your order is shipped.</p>
+    //     <br/>
+    //     <p>Thank you for shopping with us.</p>
+    //   `,
+    // });
 
     res.status(201).json({
       message: "Order placed successfully",
