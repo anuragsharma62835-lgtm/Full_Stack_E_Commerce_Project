@@ -34,7 +34,7 @@ export default function Signup() {
 
       dispatch(login(data));
 
-      toast.success("Signup successful 🎉");
+      toast.success("Signup successful ");
 
       navigate("/profile");
     } catch (error) {

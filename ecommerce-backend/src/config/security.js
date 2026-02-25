@@ -6,7 +6,11 @@ const applySecurityMiddleware = (app) => {
   app.use(helmet());
 
   app.use(cors({
-  origin: "*",
+  origin: [
+    "http://localhost:5173",
+    "https://full-stack-e-commerce-project-is6xk.vercel.app",
+    "https://full-stack-e-commerce-project-pearl.vercel.app"
+  ],
   credentials: true
 }));
 
