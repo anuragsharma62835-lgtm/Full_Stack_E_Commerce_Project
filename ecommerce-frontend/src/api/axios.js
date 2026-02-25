@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: "https://full-stack-e-commerce-project-w8nn.onrender.com",
 });
 
 API.interceptors.request.use((config) => {
