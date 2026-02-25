@@ -4,7 +4,11 @@ const rateLimit = require("express-rate-limit");
 
 const applySecurityMiddleware = (app) => {
   app.use(helmet());
-  app.use(cors());
+
+  app.use(cors({
+  origin: "*",
+  credentials: true
+}));
 
   const limiter = rateLimit({
     windowMs: 15 * 60 * 1000,
