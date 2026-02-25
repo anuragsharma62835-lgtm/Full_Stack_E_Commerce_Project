@@ -3,7 +3,10 @@ const cors = require("cors");
 const rateLimit = require("express-rate-limit");
 
 const applySecurityMiddleware = (app) => {
-  app.use(helmet());
+  app.use(helmet({
+    crossOriginResourcePolicy: false
+  }));
+
 
   app.use(cors({
   origin: [
