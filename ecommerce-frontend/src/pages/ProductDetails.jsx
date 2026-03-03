@@ -16,6 +16,9 @@ export default function ProductDetails() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
+    const user = useSelector((state) => state.app.user);
+
+
   useEffect(() => {
     const fetchProduct = async () => {
       try {
@@ -49,10 +52,20 @@ export default function ProductDetails() {
       String(item?.product?._id || item?.product) === String(product?._id),
   );
 
-  const handleAddToCart = () => {
-    dispatch(addToCart(product));
+   const handleAddToCart = async () => {
+  if (!user) {
+    toast.error("Please login first");
+    navigate("/login");
+    return;
+  }
+
+  try {
+    await dispatch(addToCart(product)).unwrap();
     toast.success("Added to cart");
-  };
+  } catch (error) {
+    toast.error("Failed to add to cart");
+  }
+};
 
   const handleBuyNow = () => navigate(`/buy/${product._id}`);
   const handleGoToCart = () => navigate("/cart");

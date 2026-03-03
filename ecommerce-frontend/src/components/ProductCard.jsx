@@ -14,12 +14,23 @@ function ProductCard({ product }) {
     (item) => String(item.product?._id || item.product) === String(product._id),
   );
 
-  const handleAddToCart = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    dispatch(addToCart(product));
+    const handleAddToCart = async (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+
+  if (!user) {
+    toast.error("Please login first");
+    navigate("/login");
+    return;
+  }
+
+  try {
+    await dispatch(addToCart(product)).unwrap();
     toast.success("Added to cart");
-  };
+  } catch (error) {
+    toast.error("Failed to add to cart");
+  }
+};
 
   const handleBuyNow = (e) => {
     e.preventDefault();

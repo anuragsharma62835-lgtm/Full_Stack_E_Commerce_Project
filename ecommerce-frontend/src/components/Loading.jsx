@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 
 export default function Loading() {
-  const isLoading = useSelector((state) => state.app.isLoading);
+  const isLoading = useSelector((state) => state.app.Loading);
 
   if (!isLoading) return null;
 

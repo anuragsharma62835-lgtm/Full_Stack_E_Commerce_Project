@@ -7,10 +7,23 @@ const CartButton = ({ product }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
 
-  const handleAdd = () => {
-    dispatch(addToCart(product));
+  const user = useSelector((state) => state.app.user);
+  const navigate = useNavigate();
+
+  const handleAdd = async () => {
+  if (!user) {
+    toast.error("Please login first");
+    navigate("/login");
+    return;
+  }
+
+  try {
+    await dispatch(addToCart(product)).unwrap();
     toast.success("Item added to cart");
-  };
+  } catch (error) {
+    toast.error("Failed to add to cart");
+  }
+};
 
   const handleRemove = () => {
     dispatch(removeFromCart(product._id));

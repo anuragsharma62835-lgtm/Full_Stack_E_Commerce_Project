@@ -30,7 +30,7 @@ app.get("/api/protected", protect, (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.json({ message: "E-Commerce API Running 🚀" });
+  res.json({ message: "E-Commerce API Running " });
 });
 
 app.use(errorHandler);

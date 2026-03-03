@@ -1,7 +1,10 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://full-stack-e-commerce-project-w8nn.onrender.com/api",
+  baseURL:
+    window.location.hostname === "localhost"
+      ? "http://localhost:5000/api"
+      : "https://full-stack-e-commerce-project-w8nn.onrender.com/api",
 });
 
 API.interceptors.request.use((config) => {
