@@ -10,6 +10,7 @@ const { protect } = require("./middlewares/authMiddleware");
 const { errorHandler } = require("./middlewares/errorMiddleware");
 
 const app = express();
+app.set("trust proxy", 1);
 app.use(compression());
 
 app.use(express.json());
