@@ -94,9 +94,10 @@ export default function Login() {
             type="button"
             onClick={() =>
               (window.location.href =
-                window.location.hostname === "localhost"
-                  ? "http://localhost:5000/api/users/google"
-                  : "https://full-stack-e-commerce-project-w8nn.onrender.com/api/users/google")
+                // window.location.hostname === "localhost"
+                // ? "http://localhost:5000/api/users/google"
+                // :
+                "https://full-stack-e-commerce-project-w8nn.onrender.com/api/users/google")
             }
             className="w-full flex items-center gap-2 justify-center my-3 bg-white border border-gray-500/30 py-2.5 rounded-full text-gray-800"
           >
