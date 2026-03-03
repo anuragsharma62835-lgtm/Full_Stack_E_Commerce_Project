@@ -26,6 +26,7 @@ export default function Home() {
       const { data } = await API.get(
         `/products?page=${page}&limit=20&keyword=${keyword}&sort=${sort}`,
       );
+      console.log(data);
 
       setProducts(data.data);
       setPages(data.pages);
