@@ -38,7 +38,8 @@ router.get(
       return res.redirect(redirectURL);
     } catch (error) {
       console.error(error);
-      return res.redirect("http://localhost:5173/login");
+      // return res.redirect("http://localhost:5173/login");
+      return res.redirect("https://full-stack-e-commerce-project-pearl.vercel.app/login");
     }
   },
 );
