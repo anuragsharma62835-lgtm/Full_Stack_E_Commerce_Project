@@ -21,13 +21,9 @@ export default function Home() {
     dispatch(startLoading());
 
     try {
-      // await new Promise((resolve) => setTimeout(resolve, 2000));
-
       const { data } = await API.get(
         `/products?page=${page}&limit=20&keyword=${keyword}&sort=${sort}`,
       );
-      console.log(data);
-
       setProducts(data.data);
       setPages(data.pages);
     } catch (error) {

@@ -7,7 +7,6 @@ dotenv.config();
 connectDB();
 
 const PORT = process.env.PORT || 5000;
-console.log("NEW DEPLOY TEST");
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
