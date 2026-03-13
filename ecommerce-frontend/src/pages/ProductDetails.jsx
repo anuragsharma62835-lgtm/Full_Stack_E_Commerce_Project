@@ -69,6 +69,7 @@ export default function ProductDetails() {
 
   const handleBuyNow = () => navigate(`/buy/${product._id}`);
   const handleGoToCart = () => navigate("/cart");
+  const gotopreviouspsge = () => navigate(-1);
 
   if (loading) return <div className="text-center mt-10">Loading...</div>;
 
@@ -81,6 +82,7 @@ export default function ProductDetails() {
 
   return (
     <div className="max-w-6xl mx-auto mt-10 px-4">
+      <h2 onClick={gotopreviouspsge}>go to previous page</h2>
       {/* Main Product */}
       <div className="grid md:grid-cols-2 gap-8">
         <div className="bg-white shadow-lg rounded-xl p-4">
